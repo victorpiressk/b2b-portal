@@ -1,0 +1,22 @@
+import styled from 'styled-components'
+
+export const AboutContainer = styled.section`
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  img {
+    width: 540px;
+  }
+
+  h2 {
+    margin-bottom: 16px;
+  }
+
+  p {
+    margin-bottom: 12px;
+    font-family: 'roboto', sans-serif;
+  }
+`

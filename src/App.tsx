@@ -1,8 +1,17 @@
+import { BrowserRouter } from 'react-router-dom'
+import { GlobalStyles } from './globalStyles'
+import Header from './components/Header'
+import RoutesApp from './routes/RoutesApp'
+import Footer from './components/Footer'
+
 function App() {
   return (
-    <div>
-      <h1>Olá mundo!</h1>
-    </div>
+    <BrowserRouter>
+      <GlobalStyles />
+      <Header />
+      <RoutesApp />
+      <Footer />
+    </BrowserRouter>
   )
 }
 
