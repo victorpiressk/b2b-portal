@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 export const AboutContainer = styled.section`
+  padding: 40px 0;
+
   .container {
     display: flex;
     align-items: center;
@@ -18,5 +20,6 @@ export const AboutContainer = styled.section`
   p {
     margin-bottom: 12px;
     font-family: 'roboto', sans-serif;
+    line-height: 22px;
   }
 `

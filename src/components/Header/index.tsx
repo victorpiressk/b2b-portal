@@ -1,16 +1,22 @@
 import { useState } from 'react'
 import { HeaderButton, HeaderContainer } from './styles'
-import LoginModal from '../LoginModal'
+import Login from '../Login'
+import Contact from '../Contact'
 
 interface ModalState {
   isVisible: boolean
 }
 
 const Header = () => {
-  const [modal, setModal] = useState<ModalState>({ isVisible: false })
+  const [loginModal, setLoginModal] = useState<ModalState>({ isVisible: false })
+  const [contactModal, setContactModal] = useState<ModalState>({
+    isVisible: false
+  })
 
-  const openModal = () => setModal({ isVisible: true })
-  const closeModal = () => setModal({ isVisible: false })
+  const openLoginModal = () => setLoginModal({ isVisible: true })
+  const closeLoginModal = () => setLoginModal({ isVisible: false })
+  const openContactModal = () => setContactModal({ isVisible: true })
+  const closeContactModal = () => setContactModal({ isVisible: false })
 
   return (
     <>
@@ -23,10 +29,12 @@ const Header = () => {
                 <a href="#about">Sobre</a>
               </li>
               <li>
-                <a href="#contact">Contato</a>
+                <HeaderButton type="button" onClick={openContactModal}>
+                  Contato
+                </HeaderButton>
               </li>
               <li>
-                <HeaderButton type="button" onClick={openModal}>
+                <HeaderButton type="button" onClick={openLoginModal}>
                   Log-in
                 </HeaderButton>
               </li>
@@ -34,7 +42,8 @@ const Header = () => {
           </nav>
         </div>
       </HeaderContainer>
-      <LoginModal isVisible={modal.isVisible} onClose={closeModal} />
+      <Login isVisible={loginModal.isVisible} onClose={closeLoginModal} />
+      <Contact isVisible={contactModal.isVisible} onClose={closeContactModal} />
     </>
   )
 }

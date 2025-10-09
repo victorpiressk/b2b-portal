@@ -1,14 +1,9 @@
-import * as S from './styles'
 import closeIcon from '../../assets/images/close.png'
 import InputGroup from '../InputGroup'
 import Button from '../Button'
+import * as S from './styles'
 
-interface LoginModalProps {
-  isVisible: boolean
-  onClose: () => void
-}
-
-const LoginModal = ({ isVisible, onClose }: LoginModalProps) => {
+const Login = ({ isVisible, onClose }: ModalProps) => {
   return (
     <S.Modal className={isVisible ? 'visivel' : ''}>
       <S.ModalContent className="container">
@@ -53,4 +48,4 @@ const LoginModal = ({ isVisible, onClose }: LoginModalProps) => {
   )
 }
 
-export default LoginModal
+export default Login

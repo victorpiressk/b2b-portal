@@ -5,16 +5,17 @@ import { CardContainer } from './styles'
 type CardProps = {
   title: string
   children: ReactNode
+  buttonText: string
 }
 
-const Card = ({ title, children }: CardProps) => (
+const Card = ({ title, children, buttonText }: CardProps) => (
   <CardContainer>
     <div>
       <h3>{title}</h3>
       <p>{children}</p>
     </div>
     <Button type="link" title="Acessar o portal para fornecedores">
-      Entrar
+      {buttonText}
     </Button>
   </CardContainer>
 )

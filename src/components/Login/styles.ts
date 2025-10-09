@@ -31,7 +31,7 @@ export const ModalContent = styled.div`
   z-index: 1;
   max-width: 786px;
   width: 100%;
-  border-radius: 12px;
+  border-radius: 6px;
   background-color: ${colors.purple};
   color: ${colors.white};
   padding: 8px;
@@ -39,6 +39,10 @@ export const ModalContent = styled.div`
   header {
     display: flex;
     justify-content: end;
+
+    img {
+      cursor: pointer;
+    }
   }
 
   main {
