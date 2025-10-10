@@ -14,6 +14,7 @@ export const AboutContainer = styled.section`
   }
 
   h2 {
+    font-weight: normal;
     margin-bottom: 16px;
   }
 

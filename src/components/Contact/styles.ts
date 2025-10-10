@@ -30,7 +30,7 @@ export const ModalContent = styled.div`
   z-index: 1;
   max-width: 640px;
   width: 100%;
-  border-radius: 6px;
+  border-radius: 4px;
   background-color: ${colors.purple};
   color: ${colors.white};
   padding: 12px 8px;
@@ -46,5 +46,9 @@ export const ModalContent = styled.div`
 
   form {
     padding: 24px;
+  }
+
+  h3 {
+    font-weight: normal;
   }
 `

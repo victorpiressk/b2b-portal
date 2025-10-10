@@ -1,22 +1,9 @@
-import { ReactNode } from 'react'
-import Button from '../Button'
 import { CardContainer } from './styles'
 
-type CardProps = {
-  title: string
-  children: ReactNode
-  buttonText: string
-}
-
-const Card = ({ title, children, buttonText }: CardProps) => (
+const Card = ({ cardTitle, children }: CardProps) => (
   <CardContainer>
-    <div>
-      <h3>{title}</h3>
-      <p>{children}</p>
-    </div>
-    <Button type="link" title="Acessar o portal para fornecedores">
-      {buttonText}
-    </Button>
+    <h3>{cardTitle}</h3>
+    {children}
   </CardContainer>
 )
 

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 export const colors = {
   white: '#ecf0f1',
@@ -16,7 +16,7 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: none;
     }
 
-  body, button {
+  body, button, a {
     font-family: 'Bungee', sans-serif;
   }
 
@@ -29,4 +29,14 @@ export const GlobalStyles = createGlobalStyle`
     width: 100%;
     margin: 0 auto;
   }
+`
+
+export const Container = styled.div`
+  display: grid;
+  grid-template-columns: 246px auto;
+`
+
+export const MainContainer = styled.main`
+  padding: 20px 0 0 40px;
+  height: 80vh;
 `

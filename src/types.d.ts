@@ -1,4 +1,21 @@
+declare type ButtonProps = {
+  type: 'button' | 'link' | 'submit'
+  buttonTitle: string
+  to?: string
+  onClick?: () => void
+  children: ReactNode
+}
+
 declare type ModalProps = {
   isVisible: boolean
   onClose: () => void
+}
+
+declare type CardProps = {
+  cardTitle: string
+  children: ReactNode
+}
+
+declare type ListProps = {
+  filteredItems: SupplierCommerce[]
 }

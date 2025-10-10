@@ -21,6 +21,7 @@ export const HeaderContainer = styled.header`
 
   h1,
   a {
+    font-weight: normal;
     color: ${colors.white};
   }
 
@@ -35,4 +36,5 @@ export const HeaderButton = styled.button`
   background-color: transparent;
   color: ${colors.white};
   font-size: 16px;
+  cursor: pointer;
 `

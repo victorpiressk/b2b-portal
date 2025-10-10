@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { HeaderButton, HeaderContainer } from './styles'
 import Login from '../Login'
 import Contact from '../Contact'
+import { Link } from 'react-router-dom'
 
 interface ModalState {
   isVisible: boolean
@@ -26,7 +27,7 @@ const Header = () => {
           <nav>
             <ul>
               <li>
-                <a href="#about">Sobre</a>
+                <Link to="/">home</Link>
               </li>
               <li>
                 <HeaderButton type="button" onClick={openContactModal}>

@@ -11,6 +11,7 @@ export const FooterContainer = styled.footer`
     margin-bottom: 32px;
 
     h3 {
+      font-weight: normal;
       margin-bottom: 8px;
     }
   }

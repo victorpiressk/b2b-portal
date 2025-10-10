@@ -17,7 +17,7 @@ const Login = ({ isVisible, onClose }: ModalProps) => {
               <input type="email" placeholder="Usuário" required />
               <input type="password" placeholder="Senha" required />
             </InputGroup>
-            <Button type="submit" title="Clique aqui para Entrar">
+            <Button type="submit" buttonTitle="Clique aqui para Entrar">
               Entrar
             </Button>
           </form>
@@ -37,7 +37,7 @@ const Login = ({ isVisible, onClose }: ModalProps) => {
                 <option value="">Cliente (Comprador)</option>
               </select>
             </InputGroup>
-            <Button type="submit" title="Clique aqui para Entrar">
+            <Button type="submit" buttonTitle="Clique aqui para Entrar">
               Cadastrar
             </Button>
           </form>

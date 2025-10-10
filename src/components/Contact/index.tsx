@@ -29,7 +29,7 @@ const Contact = ({ isVisible, onClose }: ModalProps) => (
             </label>
           </div>
         </InputGroup>
-        <Button type="submit" title="Clique aqui para Enviar">
+        <Button type="submit" buttonTitle="Clique aqui para Enviar">
           Enviar
         </Button>
       </form>

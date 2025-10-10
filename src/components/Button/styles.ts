@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { colors } from '../../globalStyles'
-import { ButtonProps } from '.'
 
 export const ButtonContainer = styled.button<ButtonProps>`
   width: 100%;
@@ -12,6 +11,7 @@ export const ButtonContainer = styled.button<ButtonProps>`
   border-radius: 4px;
   cursor: pointer;
   margin-bottom: 8px;
+  font-weight: normal;
 
   &:hover {
     background-color: ${colors.blue};
@@ -27,6 +27,7 @@ export const ButtonLink = styled(Link)<ButtonProps>`
   cursor: pointer;
   margin-bottom: 8px;
   text-align: center;
+  font-weight: normal;
 
   &:hover {
     background-color: ${colors.blue};

@@ -1,3 +1,4 @@
+import Button from '../Button'
 import Card from '../Card'
 import { DemoContainer, DemoContent, IntroContainer } from './styles'
 
@@ -18,17 +19,34 @@ const Demo = () => (
         </p>
       </IntroContainer>
       <DemoContent>
-        <Card title="Fornecedor" buttonText="Ver Painel">
-          <p>
-            Gerencie solicitações e acompanhe suas vendas em tempo real com
-            controle total sobre propostas e entregas.
-          </p>
+        <Card cardTitle="Fornecedor">
+          <div>
+            <p>
+              Gerencie solicitações e acompanhe suas vendas em tempo real com
+              controle total sobre propostas e entregas.
+            </p>
+            <Button
+              type="link"
+              buttonTitle="Clique aqui para ver painel de fornecedores"
+              to="/supplier"
+            >
+              Ver Painel
+            </Button>
+          </div>
         </Card>
-        <Card title="Comprador" buttonText="Simular Acesso">
-          <p>
-            Envie solicitações de compra, compare propostas e gerencie seus
-            pedidos com praticidade e transparência.
-          </p>
+        <Card cardTitle="Comprador">
+          <div>
+            <p>
+              Envie solicitações de compra, compare propostas e gerencie seus
+              pedidos com praticidade e transparência. Tudo em nosso portal.
+            </p>
+            <Button
+              type="link"
+              buttonTitle="Clique aqui para simular o acesso do comprador"
+            >
+              Simular Acesso
+            </Button>
+          </div>
         </Card>
       </DemoContent>
     </div>

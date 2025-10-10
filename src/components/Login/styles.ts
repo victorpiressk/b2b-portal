@@ -31,7 +31,7 @@ export const ModalContent = styled.div`
   z-index: 1;
   max-width: 786px;
   width: 100%;
-  border-radius: 6px;
+  border-radius: 4px;
   background-color: ${colors.purple};
   color: ${colors.white};
   padding: 8px;
@@ -50,5 +50,9 @@ export const ModalContent = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 32px;
     padding: 24px;
+  }
+
+  h3 {
+    font-weight: normal;
   }
 `
