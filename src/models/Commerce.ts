@@ -1,4 +1,4 @@
-import { CommerceStatus } from '../utils/enums/PanelSection'
+import { CommerceStatus } from '../utils/enums/CommerceStatus'
 
 class SupplierCommerce {
   id: number
@@ -6,19 +6,22 @@ class SupplierCommerce {
   description: string
   saleValue: number
   status: CommerceStatus
+  operationType: 'REQUEST' | 'SALE'
 
   constructor(
     id: number,
     title: string,
     description: string,
     saleValue: number,
-    status: CommerceStatus
+    status: CommerceStatus,
+    operationType: 'REQUEST' | 'SALE'
   ) {
     this.id = id
     this.title = title
     this.description = description
     this.saleValue = saleValue
     this.status = status
+    this.operationType = operationType
   }
 }
 

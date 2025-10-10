@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux'
-import CommerceList from '../../components/SupplierComponents/CommerceList'
-import HeaderList from '../../components/SupplierComponents/HeaderList'
-import SideBar from '../../components/SupplierComponents/SideBar'
+import CommerceList from '../../components/BuyerComponents/CommerceList'
+import HeaderList from '../../components/BuyerComponents/HeaderList'
+import SideBar from '../../components/BuyerComponents/SideBar'
 import { Container, MainContainer } from '../../globalStyles'
 import { RootReducer } from '../../store'
 import { CommerceStatus } from '../../utils/enums/CommerceStatus'
 
-const SupplierPageDemo = () => {
+const BuyerPageDemo = () => {
   const { items } = useSelector((state: RootReducer) => state.commerce)
   const { value, term } = useSelector((state: RootReducer) => state.filter)
 
@@ -41,4 +41,4 @@ const SupplierPageDemo = () => {
   )
 }
 
-export default SupplierPageDemo
+export default BuyerPageDemo

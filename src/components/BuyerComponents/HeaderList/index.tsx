@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
-import searchIcon from '../../assets/images/search.svg'
-import { RootReducer } from '../../store'
+import searchIcon from '../../../assets/images/search.svg'
+import { RootReducer } from '../../../store'
 import {
   HeadeContainer,
   Input,
@@ -8,11 +8,11 @@ import {
   HeaderContent,
   ListTitleContainer
 } from './styles'
-import { setTerm } from '../../store/reducers/SupplierFilterSlice'
+import { changeTerm } from '../../../store/reducers/FilterSlice'
 
 const HeaderList = ({ filteredItems }: ListProps) => {
   const dispatch = useDispatch()
-  const { term } = useSelector((state: RootReducer) => state.supplierFilter)
+  const { term } = useSelector((state: RootReducer) => state.filter)
 
   return (
     <HeadeContainer>
@@ -26,7 +26,7 @@ const HeaderList = ({ filteredItems }: ListProps) => {
               id="search"
               placeholder="Pesquisar"
               value={term}
-              onChange={(e) => dispatch(setTerm(e.target.value))}
+              onChange={(e) => dispatch(changeTerm(e.target.value))}
             />
           </Label>
         </div>

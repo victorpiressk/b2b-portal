@@ -43,6 +43,7 @@ const Demo = () => (
             <Button
               type="link"
               buttonTitle="Clique aqui para simular o acesso do comprador"
+              to="/buyer"
             >
               Simular Acesso
             </Button>

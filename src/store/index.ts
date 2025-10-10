@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import SupplierFilterSlice from './reducers/SupplierFilterSlice'
-import SupplierListSlice from './reducers/SupplierListSlice'
+import filterSlice from './reducers/FilterSlice'
+import commerceSlice from './reducers/CommerceSlice'
 
 const store = configureStore({
   reducer: {
-    supplierFilter: SupplierFilterSlice,
-    supplierList: SupplierListSlice
+    filter: filterSlice,
+    commerce: commerceSlice
   }
 })
 

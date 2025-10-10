@@ -4,10 +4,6 @@ import Login from '../Login'
 import Contact from '../Contact'
 import { Link } from 'react-router-dom'
 
-interface ModalState {
-  isVisible: boolean
-}
-
 const Header = () => {
   const [loginModal, setLoginModal] = useState<ModalState>({ isVisible: false })
   const [contactModal, setContactModal] = useState<ModalState>({

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../globalStyles'
+import { colors } from '../../../globalStyles'
 
 export const HeadeContainer = styled.div`
   border-bottom: 1px solid ${colors.white};
@@ -16,7 +16,7 @@ export const HeaderContent = styled.div`
 
 export const Label = styled.label`
   padding: 6px;
-  background-color: #f9fbff;
+  background-color: ${colors.white2};
   border: 1px solid ${colors.white};
   border-radius: 8px;
   display: flex;
@@ -25,7 +25,7 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   margin-left: 8px;
-  background-color: #f9fbff;
+  background-color: ${colors.white2};
   border: none;
   font-size: 12px;
 

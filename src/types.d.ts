@@ -9,6 +9,11 @@ declare type ButtonProps = {
 declare type ModalProps = {
   isVisible: boolean
   onClose: () => void
+  description?: string
+}
+
+declare type ModalState = {
+  isVisible: boolean
 }
 
 declare type CardProps = {

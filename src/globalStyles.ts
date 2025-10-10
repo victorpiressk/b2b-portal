@@ -2,6 +2,8 @@ import styled, { createGlobalStyle } from 'styled-components'
 
 export const colors = {
   white: '#ecf0f1',
+  white2: '#f9fbff',
+  black: '#000',
   purple: '#511f8b',
   blue: '#6486e2',
   navyBlue: '#182c61'
@@ -33,10 +35,10 @@ export const GlobalStyles = createGlobalStyle`
 
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: 246px auto;
+  grid-template-columns: 320px auto;
 `
 
 export const MainContainer = styled.main`
-  padding: 20px 0 0 40px;
+  padding: 20px 40px;
   height: 80vh;
 `
