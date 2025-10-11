@@ -1,19 +1,20 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import SupplierCommerce from '../../../models/Commerce'
-import { CommerceStatus } from '../../../utils/enums/CommerceStatus'
+import * as enums from '../../../utils/enums/CommerceStatus'
 import { removeCommerce } from '../../../store/reducers/CommerceSlice'
-import { parseToBrl } from '../../../utils'
-import { CommerceContainer } from './styles'
+import { parseToBrl, getCommerceLabel, getOverflow } from '../../../utils'
 import ViewDescription from '../../ViewDescription'
+import { CommerceContainer } from './styles'
 
 const Commerce = ({
   id,
   title,
   description,
   saleValue,
-  status
-}: SupplierCommerce) => {
+  status,
+  operationType,
+  isSupplier
+}: CommerceProps) => {
   const dispatch = useDispatch()
   const [viewModal, setViewModal] = useState<ModalState>({ isVisible: false })
 
@@ -22,16 +23,21 @@ const Commerce = ({
 
   const handleCancel = () => dispatch(removeCommerce(id))
 
+  const RequestPending =
+    operationType === enums.CommerceType.REQUEST &&
+    status === enums.CommerceStatus.PENDING
+
   return (
     <>
       <CommerceContainer>
-        <p>{title}</p>
+        <p title={title}>{getOverflow(title)}</p>
         <button type="button" onClick={openViewModal}>
           Ver
         </button>
         <p>{parseToBrl(saleValue)}</p>
+        <p>{getCommerceLabel(operationType, isSupplier)}</p>
         <p>{status}</p>
-        {status === CommerceStatus.REQUEST_PENDING && (
+        {RequestPending && (
           <>
             <button onClick={handleCancel}>Cancelar</button>
           </>

@@ -13,7 +13,8 @@ const CommerceList = ({ filteredItems }: ListProps) => {
               description={c.description}
               saleValue={c.saleValue}
               status={c.status}
-              operationType={'REQUEST'}
+              operationType={c.operationType}
+              isSupplier={false}
             />
           </li>
         ))}

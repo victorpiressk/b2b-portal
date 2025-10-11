@@ -49,6 +49,20 @@ export const ModalContent = styled.div`
   }
 
   h3 {
+    padding-left: 24px;
     font-weight: normal;
+  }
+`
+
+export const ResponseContainer = styled.div`
+  padding: 24px;
+
+  div {
+    margin-bottom: 16px;
+    border-radius: 4px;
+    padding: 16px;
+    background-color: ${colors.white2};
+    color: ${colors.black};
+    text-align: center;
   }
 `

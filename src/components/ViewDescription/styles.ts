@@ -50,9 +50,17 @@ export const ModalContent = styled.div`
   }
 `
 export const DescriptionContainer = styled.div`
+  max-width: 476px;
+  width: 100%;
   margin: 16px;
   border-radius: 4px;
   padding: 16px;
   background-color: ${colors.white2};
   color: ${colors.black};
+
+  p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+  }
 `

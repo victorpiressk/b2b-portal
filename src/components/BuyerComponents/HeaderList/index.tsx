@@ -35,6 +35,7 @@ const HeaderList = ({ filteredItems }: ListProps) => {
         <h4>Titulo</h4>
         <h4>Descrição</h4>
         <h4>Valor</h4>
+        <h4>Etapa</h4>
         <h4>Status</h4>
       </ListTitleContainer>
     </HeadeContainer>

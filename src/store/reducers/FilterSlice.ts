@@ -1,14 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { CommerceStatus } from '../../utils/enums/CommerceStatus'
-
-type FilterState = {
-  term: string
-  value: CommerceStatus
-}
 
 const initialState: FilterState = {
   term: '',
-  value: CommerceStatus.ALL
+  criterion: 'tudo'
 }
 
 const FilterSlice = createSlice({
@@ -18,15 +12,12 @@ const FilterSlice = createSlice({
     changeTerm: (state, action: PayloadAction<string>) => {
       state.term = action.payload
     },
-    changeFilter: (state, action: PayloadAction<CommerceStatus>) => {
-      state.value = action.payload
-    },
-    resetFilter: (state) => {
-      state.term = ''
-      state.value = CommerceStatus.ALL
+    changeFilter: (state, action: PayloadAction<FilterState>) => {
+      state.criterion = action.payload.criterion
+      state.value = action.payload.value
     }
   }
 })
 
-export const { changeTerm, changeFilter, resetFilter } = FilterSlice.actions
+export const { changeTerm, changeFilter } = FilterSlice.actions
 export default FilterSlice.reducer

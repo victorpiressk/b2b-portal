@@ -4,38 +4,44 @@ import HeaderList from '../../components/BuyerComponents/HeaderList'
 import SideBar from '../../components/BuyerComponents/SideBar'
 import { Container, MainContainer } from '../../globalStyles'
 import { RootReducer } from '../../store'
-import { CommerceStatus } from '../../utils/enums/CommerceStatus'
+import { useGetCommercesQuery } from '../../services/api'
 
 const BuyerPageDemo = () => {
-  const { items } = useSelector((state: RootReducer) => state.commerce)
-  const { value, term } = useSelector((state: RootReducer) => state.filter)
+  const { data: commerce = [], isLoading, isError } = useGetCommercesQuery()
+  const { term, criterion, value } = useSelector(
+    (state: RootReducer) => state.filter
+  )
 
-  const filteredItems = items.filter((item) => {
-    const termLowerCase = term?.toLowerCase() ?? ''
+  if (isLoading) return <p>Carregando...</p>
+  if (isError) return <p>Erro ao carregar dados.</p>
 
-    const termMatch =
-      !termLowerCase ||
-      item.title.toLowerCase().includes(termLowerCase) ||
-      item.description.toLowerCase().includes(termLowerCase) ||
-      item.status.toLowerCase().includes(termLowerCase) ||
-      String(item.saleValue).replace('.', ',').includes(termLowerCase)
+  const filteredItems = () => {
+    const termLowerCase = term?.trim().toLowerCase() ?? ''
 
-    const sectionMatch =
-      value === CommerceStatus.ALL ||
-      (value === CommerceStatus.ALL_REQUESTS &&
-        item.operationType === 'REQUEST') ||
-      (value === CommerceStatus.ALL_SALES && item.operationType === 'SALE') ||
-      item.status === value
+    return commerce.filter((item) => {
+      const termMatch =
+        !termLowerCase ||
+        item.title.toLowerCase().includes(termLowerCase) ||
+        item.description.toLowerCase().includes(termLowerCase) ||
+        String(item.saleValue).replace('.', ',').includes(termLowerCase)
 
-    return sectionMatch && termMatch
-  })
+      let filterMatch = true
+      if (criterion === 'status' && value) {
+        filterMatch = item.status === value
+      } else if (criterion === 'tipo' && value) {
+        filterMatch = item.operationType === value
+      }
+
+      return termMatch && filterMatch
+    })
+  }
 
   return (
     <Container>
       <SideBar />
       <MainContainer>
-        <HeaderList filteredItems={filteredItems} />
-        <CommerceList filteredItems={filteredItems} />
+        <HeaderList filteredItems={filteredItems()} />
+        <CommerceList filteredItems={filteredItems()} />
       </MainContainer>
     </Container>
   )

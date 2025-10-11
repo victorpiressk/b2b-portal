@@ -1,13 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux'
 import SideButton from '../../SupplierComponents/SideButton'
-import { CommerceStatus } from '../../../utils/enums/CommerceStatus'
+import * as enums from '../../../utils/enums/CommerceStatus'
 import { RootReducer } from '../../../store'
 import { changeFilter } from '../../../store/reducers/FilterSlice'
 import { Aside, AsideTitle, Title } from './styles'
 
 const SideBar = () => {
   const dispatch = useDispatch()
-  const activeSection = useSelector((state: RootReducer) => state.filter.value)
+  const { filter } = useSelector((state: RootReducer) => state)
+
+  const activeSection = ({ criterion, value }: FilterState) =>
+    filter.criterion === criterion && filter.value === value
+
+  const handleFilterChange = ({ criterion, value }: FilterState) => {
+    dispatch(changeFilter({ criterion, value }))
+  }
 
   return (
     <Aside>
@@ -15,8 +22,8 @@ const SideBar = () => {
 
       <div>
         <SideButton
-          isActive={activeSection === CommerceStatus.ALL}
-          onClick={() => dispatch(changeFilter(CommerceStatus.ALL))}
+          isActive={activeSection({ criterion: 'tudo' })}
+          onClick={() => handleFilterChange({ criterion: 'tudo' })}
         >
           Tudo
         </SideButton>
@@ -24,30 +31,58 @@ const SideBar = () => {
       <Title>Solicitações</Title>
       <div>
         <SideButton
-          isActive={activeSection === CommerceStatus.REQUEST_PENDING}
-          onClick={() => dispatch(changeFilter(CommerceStatus.REQUEST_PENDING))}
+          isActive={activeSection({
+            criterion: 'status',
+            value: enums.CommerceStatus.PENDING
+          })}
+          onClick={() =>
+            handleFilterChange({
+              criterion: 'status',
+              value: enums.CommerceStatus.PENDING
+            })
+          }
         >
           Pendentes
         </SideButton>
         <SideButton
-          isActive={activeSection === CommerceStatus.REQUEST_REJECTED}
+          isActive={activeSection({
+            criterion: 'status',
+            value: enums.CommerceStatus.REJECTED
+          })}
           onClick={() =>
-            dispatch(changeFilter(CommerceStatus.REQUEST_REJECTED))
+            handleFilterChange({
+              criterion: 'status',
+              value: enums.CommerceStatus.REJECTED
+            })
           }
         >
           Rejeitadas
         </SideButton>
         <SideButton
-          isActive={activeSection === CommerceStatus.REQUEST_CONFIRMED}
+          isActive={activeSection({
+            criterion: 'status',
+            value: enums.CommerceStatus.CONFIRMED
+          })}
           onClick={() =>
-            dispatch(changeFilter(CommerceStatus.REQUEST_CONFIRMED))
+            handleFilterChange({
+              criterion: 'status',
+              value: enums.CommerceStatus.CONFIRMED
+            })
           }
         >
           Confirmadas
         </SideButton>
         <SideButton
-          isActive={activeSection === CommerceStatus.ALL_REQUESTS}
-          onClick={() => dispatch(changeFilter(CommerceStatus.ALL_REQUESTS))}
+          isActive={activeSection({
+            criterion: 'tipo',
+            value: enums.CommerceType.REQUEST
+          })}
+          onClick={() =>
+            handleFilterChange({
+              criterion: 'tipo',
+              value: enums.CommerceType.REQUEST
+            })
+          }
         >
           Todas
         </SideButton>
@@ -56,22 +91,44 @@ const SideBar = () => {
       <Title>Vendas</Title>
       <div>
         <SideButton
-          isActive={activeSection === CommerceStatus.SALE_IN_PROGRESS}
+          isActive={activeSection({
+            criterion: 'status',
+            value: enums.CommerceStatus.IN_PROGRESS
+          })}
           onClick={() =>
-            dispatch(changeFilter(CommerceStatus.SALE_IN_PROGRESS))
+            handleFilterChange({
+              criterion: 'status',
+              value: enums.CommerceStatus.IN_PROGRESS
+            })
           }
         >
           Em andamento
         </SideButton>
         <SideButton
-          isActive={activeSection === CommerceStatus.SALE_CONCLUDED}
-          onClick={() => dispatch(changeFilter(CommerceStatus.SALE_CONCLUDED))}
+          isActive={activeSection({
+            criterion: 'status',
+            value: enums.CommerceStatus.CONCLUDED
+          })}
+          onClick={() =>
+            handleFilterChange({
+              criterion: 'status',
+              value: enums.CommerceStatus.CONCLUDED
+            })
+          }
         >
           Concluídas
         </SideButton>
         <SideButton
-          isActive={activeSection === CommerceStatus.ALL_SALES}
-          onClick={() => dispatch(changeFilter(CommerceStatus.ALL_SALES))}
+          isActive={activeSection({
+            criterion: 'tipo',
+            value: enums.CommerceType.SALE
+          })}
+          onClick={() =>
+            handleFilterChange({
+              criterion: 'tipo',
+              value: enums.CommerceType.SALE
+            })
+          }
         >
           Todas
         </SideButton>

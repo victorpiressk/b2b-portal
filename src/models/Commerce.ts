@@ -1,4 +1,4 @@
-import { CommerceStatus } from '../utils/enums/CommerceStatus'
+import { CommerceStatus, CommerceType } from '../utils/enums/CommerceStatus'
 
 class SupplierCommerce {
   id: number
@@ -6,7 +6,7 @@ class SupplierCommerce {
   description: string
   saleValue: number
   status: CommerceStatus
-  operationType: 'REQUEST' | 'SALE'
+  operationType: CommerceType
 
   constructor(
     id: number,
@@ -14,7 +14,7 @@ class SupplierCommerce {
     description: string,
     saleValue: number,
     status: CommerceStatus,
-    operationType: 'REQUEST' | 'SALE'
+    operationType: CommerceType
   ) {
     this.id = id
     this.title = title

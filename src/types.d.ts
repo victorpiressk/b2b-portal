@@ -4,11 +4,12 @@ declare type ButtonProps = {
   to?: string
   onClick?: () => void
   children: ReactNode
+  disabled?: boolean
 }
 
 declare type ModalProps = {
   isVisible: boolean
-  onClose: () => void
+  onClose?: () => void
   description?: string
 }
 
@@ -23,4 +24,14 @@ declare type CardProps = {
 
 declare type ListProps = {
   filteredItems: SupplierCommerce[]
+}
+
+declare type CommerceProps = SupplierCommerce & {
+  isSupplier: boolean
+}
+
+declare type FilterState = {
+  term?: string
+  criterion: 'status' | 'tipo' | 'tudo'
+  value?: enums.CommerceStatus | enums.CommerceType
 }

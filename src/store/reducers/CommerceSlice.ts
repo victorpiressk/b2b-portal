@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { CommerceStatus } from '../../utils/enums/CommerceStatus'
+import * as enums from '../../utils/enums/CommerceStatus'
 import Commerce from '../../models/Commerce'
 
 type CommerceState = {
@@ -7,24 +7,7 @@ type CommerceState = {
 }
 
 const initialState: CommerceState = {
-  items: [
-    {
-      id: 1,
-      title: 'Solicitação #1',
-      description: 'Aguardando resposta do fornecedor',
-      saleValue: 2000,
-      status: CommerceStatus.REQUEST_PENDING,
-      operationType: 'REQUEST'
-    },
-    {
-      id: 2,
-      title: 'Venda #1',
-      description: 'Venda em andamento',
-      saleValue: 1500,
-      status: CommerceStatus.SALE_IN_PROGRESS,
-      operationType: 'SALE'
-    }
-  ]
+  items: []
 }
 
 const CommerceSlice = createSlice({
@@ -33,27 +16,33 @@ const CommerceSlice = createSlice({
   reducers: {
     confirmRequest: (state, action: PayloadAction<number>) => {
       const item = state.items.find((c) => c.id === action.payload)
-      if (item && item.status === CommerceStatus.REQUEST_PENDING) {
-        item.status = CommerceStatus.REQUEST_CONFIRMED
+
+      if (item && item.status === enums.CommerceStatus.PENDING) {
+        item.status = enums.CommerceStatus.CONFIRMED
+        item.operationType = enums.CommerceType.REQUEST
       }
     },
     rejectRequest: (state, action: PayloadAction<number>) => {
       const item = state.items.find((c) => c.id === action.payload)
-      if (item && item.status === CommerceStatus.REQUEST_PENDING) {
-        item.status = CommerceStatus.REQUEST_REJECTED
+
+      if (item && item.status === enums.CommerceStatus.PENDING) {
+        item.status = enums.CommerceStatus.REJECTED
+        item.operationType = enums.CommerceType.REQUEST
       }
     },
     startSale: (state, action: PayloadAction<number>) => {
       const item = state.items.find((c) => c.id === action.payload)
-      if (item && item.status === CommerceStatus.REQUEST_CONFIRMED) {
-        item.status = CommerceStatus.SALE_IN_PROGRESS
+      if (item && item.status === enums.CommerceStatus.CONFIRMED) {
+        item.status = enums.CommerceStatus.IN_PROGRESS
+        item.operationType = enums.CommerceType.SALE
         item.saleValue = item.saleValue || 0
       }
     },
     concludeSale: (state, action: PayloadAction<number>) => {
       const item = state.items.find((c) => c.id === action.payload)
-      if (item && item.status === CommerceStatus.SALE_IN_PROGRESS) {
-        item.status = CommerceStatus.SALE_CONCLUDED
+      if (item && item.status === enums.CommerceStatus.IN_PROGRESS) {
+        item.status = enums.CommerceStatus.CONCLUDED
+        item.operationType = enums.CommerceType.SALE
       }
     },
     registerCommerce: (state, action: PayloadAction<Omit<Commerce, 'id'>>) => {
@@ -66,6 +55,9 @@ const CommerceSlice = createSlice({
     },
     removeCommerce: (state, action: PayloadAction<number>) => {
       state.items = state.items.filter((item) => item.id !== action.payload)
+    },
+    clear: (state) => {
+      state.items = []
     }
   }
 })
@@ -76,6 +68,7 @@ export const {
   startSale,
   concludeSale,
   registerCommerce,
-  removeCommerce
+  removeCommerce,
+  clear
 } = CommerceSlice.actions
 export default CommerceSlice.reducer

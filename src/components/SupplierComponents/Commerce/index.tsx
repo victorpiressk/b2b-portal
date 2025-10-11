@@ -1,14 +1,13 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import SupplierCommerce from '../../../models/Commerce'
-import { CommerceStatus } from '../../../utils/enums/CommerceStatus'
+import * as enums from '../../../utils/enums/CommerceStatus'
 import {
   confirmRequest,
   rejectRequest,
   startSale,
   concludeSale
 } from '../../../store/reducers/CommerceSlice'
-import { parseToBrl } from '../../../utils'
+import { parseToBrl, getCommerceLabel, getOverflow } from '../../../utils'
 import { CommerceContainer } from './styles'
 import ViewDescription from '../../ViewDescription'
 
@@ -17,8 +16,10 @@ const Commerce = ({
   title,
   description,
   saleValue,
-  status
-}: SupplierCommerce) => {
+  status,
+  operationType,
+  isSupplier
+}: CommerceProps) => {
   const dispatch = useDispatch()
   const [viewModal, setViewModal] = useState<ModalState>({ isVisible: false })
 
@@ -30,27 +31,40 @@ const Commerce = ({
   const handleStart = () => dispatch(startSale(id))
   const handleConclude = () => dispatch(concludeSale(id))
 
+  const RequestPending =
+    operationType === enums.CommerceType.REQUEST &&
+    status === enums.CommerceStatus.PENDING
+
+  const RequestConcluded =
+    operationType === enums.CommerceType.REQUEST &&
+    status === enums.CommerceStatus.CONCLUDED
+
+  const SaleInProgress =
+    operationType === enums.CommerceType.SALE &&
+    status === enums.CommerceStatus.IN_PROGRESS
+
   return (
     <>
       <CommerceContainer>
-        <p>{title}</p>
+        <p title={title}>{getOverflow(title)}</p>
         <button type="button" onClick={openViewModal}>
           Ver
         </button>
         <p>{parseToBrl(saleValue)}</p>
+        <p>{getCommerceLabel(operationType, isSupplier)}</p>
         <p>{status}</p>
-        {status === CommerceStatus.REQUEST_PENDING && (
+        {RequestPending && (
           <>
             <button onClick={handleConfirm}>Confirmar</button>
             <button onClick={handleReject}>Rejeitar</button>
           </>
         )}
-        {status === CommerceStatus.REQUEST_CONFIRMED && (
+        {RequestConcluded && (
           <>
             <button onClick={handleStart}>Iniciar Venda</button>
           </>
         )}
-        {status === CommerceStatus.SALE_IN_PROGRESS && (
+        {SaleInProgress && (
           <>
             <button onClick={handleConclude}>Concluir</button>
           </>
