@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux'
 import SideButton from '../../SupplierComponents/SideButton'
-import * as enums from '../../../utils/enums/CommerceStatus'
 import { RootReducer } from '../../../store'
 import { changeFilter } from '../../../store/reducers/FilterSlice'
-import { Aside, AsideTitle, Title } from './styles'
+import * as enums from '../../../utils/enums/CommerceStatus'
+import * as S from './styles'
 
 const SideBar = () => {
   const dispatch = useDispatch()
@@ -17,8 +17,8 @@ const SideBar = () => {
   }
 
   return (
-    <Aside>
-      <AsideTitle>DB Fornecedores</AsideTitle>
+    <S.Aside>
+      <S.AsideTitle>DB Fornecedores</S.AsideTitle>
 
       <div>
         <SideButton
@@ -28,7 +28,7 @@ const SideBar = () => {
           Tudo
         </SideButton>
       </div>
-      <Title>Solicitações</Title>
+      <S.Title>Solicitações</S.Title>
       <div>
         <SideButton
           isActive={activeSection({
@@ -88,7 +88,7 @@ const SideBar = () => {
         </SideButton>
       </div>
 
-      <Title>Vendas</Title>
+      <S.Title>Vendas</S.Title>
       <div>
         <SideButton
           isActive={activeSection({
@@ -133,7 +133,7 @@ const SideBar = () => {
           Todas
         </SideButton>
       </div>
-    </Aside>
+    </S.Aside>
   )
 }
 

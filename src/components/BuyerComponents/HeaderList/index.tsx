@@ -1,44 +1,38 @@
 import { useDispatch, useSelector } from 'react-redux'
-import searchIcon from '../../../assets/images/search.svg'
 import { RootReducer } from '../../../store'
-import {
-  HeadeContainer,
-  Input,
-  Label,
-  HeaderContent,
-  ListTitleContainer
-} from './styles'
 import { changeTerm } from '../../../store/reducers/FilterSlice'
+import * as S from './styles'
+import searchIcon from '../../../assets/images/search.svg'
 
 const HeaderList = ({ filteredItems }: ListProps) => {
   const dispatch = useDispatch()
   const { term } = useSelector((state: RootReducer) => state.filter)
 
   return (
-    <HeadeContainer>
-      <HeaderContent>
+    <S.HeadeContainer>
+      <S.HeaderContent>
         <h3>{filteredItems.length} - resultado(s) encontrado(s)</h3>
         <div>
-          <Label htmlFor="search">
+          <S.Label htmlFor="search">
             <img src={searchIcon} />
-            <Input
+            <S.Input
               type="text"
               id="search"
               placeholder="Pesquisar"
               value={term}
               onChange={(e) => dispatch(changeTerm(e.target.value))}
             />
-          </Label>
+          </S.Label>
         </div>
-      </HeaderContent>
-      <ListTitleContainer>
+      </S.HeaderContent>
+      <S.ListTitleContainer>
         <h4>Titulo</h4>
         <h4>Descrição</h4>
         <h4>Valor</h4>
         <h4>Etapa</h4>
         <h4>Status</h4>
-      </ListTitleContainer>
-    </HeadeContainer>
+      </S.ListTitleContainer>
+    </S.HeadeContainer>
   )
 }
 

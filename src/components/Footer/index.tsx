@@ -1,7 +1,7 @@
+import { FooterContainer } from './styles'
 import igImg from '../../assets/images/instagram.png'
 import fbImg from '../../assets/images/facebook.png'
 import ytImg from '../../assets/images/youtube.png'
-import { FooterContainer } from './styles'
 
 const Footer = () => (
   <FooterContainer>
@@ -33,7 +33,7 @@ const Footer = () => (
           Nome: B2B Soluctions / BBS <br />
           Rasão Social: Soluções B2B <br />
           <br />
-          Rua Projeto n° 1, Vila HTML&CSS - Natal - RN
+          <i>Rua Projeto n° 1, Vila HTML&CSS - Natal - RN</i>
         </p>
       </div>
       <p>&copy; B2B Soluctions - Todos os direitos reservados - 2025</p>

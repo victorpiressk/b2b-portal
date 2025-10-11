@@ -1,13 +1,13 @@
 import Button from '../Button'
 import Card from '../Card'
-import { DemoContainer, DemoContent, IntroContainer } from './styles'
+import * as S from './styles'
 
 const Demo = () => (
-  <DemoContainer>
+  <S.DemoContainer>
     <div className="container">
       <h2>Experimente o Portal BBS</h2>
 
-      <IntroContainer>
+      <S.IntroContainer>
         <p>
           O Portal B2B foi desenvolvido para conectar fornecedores e compradores
           em um único ambiente, simplificando processos de negociação,
@@ -17,8 +17,8 @@ const Demo = () => (
           Explore abaixo como cada perfil interage dentro do sistema e veja como
           a plataforma pode facilitar o dia a dia do seu negócio.
         </p>
-      </IntroContainer>
-      <DemoContent>
+      </S.IntroContainer>
+      <S.DemoContent>
         <Card cardTitle="Fornecedor">
           <div>
             <p>
@@ -49,9 +49,9 @@ const Demo = () => (
             </Button>
           </div>
         </Card>
-      </DemoContent>
+      </S.DemoContent>
     </div>
-  </DemoContainer>
+  </S.DemoContainer>
 )
 
 export default Demo

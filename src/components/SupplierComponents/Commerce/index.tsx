@@ -1,15 +1,10 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import * as enums from '../../../utils/enums/CommerceStatus'
-import {
-  confirmRequest,
-  rejectRequest,
-  startSale,
-  concludeSale
-} from '../../../store/reducers/CommerceSlice'
-import { parseToBrl, getCommerceLabel, getOverflow } from '../../../utils'
-import { CommerceContainer } from './styles'
 import ViewDescription from '../../ViewDescription'
+import { parseToBrl, getCommerceLabel, getOverflow } from '../../../utils'
+import * as reducer from '../../../store/reducers/CommerceSlice'
+import * as enums from '../../../utils/enums/CommerceStatus'
+import { CommerceContainer } from './styles'
 
 const Commerce = ({
   id,
@@ -26,10 +21,10 @@ const Commerce = ({
   const openViewModal = () => setViewModal({ isVisible: true })
   const closeViewModal = () => setViewModal({ isVisible: false })
 
-  const handleConfirm = () => dispatch(confirmRequest(id))
-  const handleReject = () => dispatch(rejectRequest(id))
-  const handleStart = () => dispatch(startSale(id))
-  const handleConclude = () => dispatch(concludeSale(id))
+  const handleConfirm = () => dispatch(reducer.confirmRequest(id))
+  const handleReject = () => dispatch(reducer.rejectRequest(id))
+  const handleStart = () => dispatch(reducer.startSale(id))
+  const handleConclude = () => dispatch(reducer.concludeSale(id))
 
   const RequestPending =
     operationType === enums.CommerceType.REQUEST &&

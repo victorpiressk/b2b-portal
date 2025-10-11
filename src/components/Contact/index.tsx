@@ -1,7 +1,7 @@
-import closeIcon from '../../assets/images/close.png'
 import InputGroup from '../InputGroup'
 import Button from '../Button'
 import * as S from './styles'
+import closeIcon from '../../assets/images/close.png'
 
 const Contact = ({ isVisible, onClose }: ModalProps) => (
   <S.Modal className={isVisible ? 'visivel' : ''}>

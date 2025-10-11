@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { HeaderButton, HeaderContainer } from './styles'
+import { Link } from 'react-router-dom'
 import Login from '../Login'
 import Contact from '../Contact'
-import { Link } from 'react-router-dom'
+import * as S from './styles'
 
 const Header = () => {
   const [loginModal, setLoginModal] = useState<ModalState>({ isVisible: false })
@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
     <>
-      <HeaderContainer>
+      <S.HeaderContainer>
         <div className="container">
           <h1>B2B Soluctions</h1>
           <nav>
@@ -26,19 +26,19 @@ const Header = () => {
                 <Link to="/">home</Link>
               </li>
               <li>
-                <HeaderButton type="button" onClick={openContactModal}>
+                <S.HeaderButton type="button" onClick={openContactModal}>
                   Contato
-                </HeaderButton>
+                </S.HeaderButton>
               </li>
               <li>
-                <HeaderButton type="button" onClick={openLoginModal}>
+                <S.HeaderButton type="button" onClick={openLoginModal}>
                   Log-in
-                </HeaderButton>
+                </S.HeaderButton>
               </li>
             </ul>
           </nav>
         </div>
-      </HeaderContainer>
+      </S.HeaderContainer>
       <Login isVisible={loginModal.isVisible} onClose={closeLoginModal} />
       <Contact isVisible={contactModal.isVisible} onClose={closeContactModal} />
     </>

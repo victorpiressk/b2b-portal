@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Circle } from './styles'
 import AddCommerce from '../AddCommerce'
+import { Circle } from './styles'
 
 const AddButton = () => {
   const [addCommerceModal, setAddCommerceModal] = useState<ModalState>({

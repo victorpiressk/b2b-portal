@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import * as enums from '../../../utils/enums/CommerceStatus'
+import ViewDescription from '../../ViewDescription'
 import { removeCommerce } from '../../../store/reducers/CommerceSlice'
 import { parseToBrl, getCommerceLabel, getOverflow } from '../../../utils'
-import ViewDescription from '../../ViewDescription'
+import * as enums from '../../../utils/enums/CommerceStatus'
 import { CommerceContainer } from './styles'
 
 const Commerce = ({

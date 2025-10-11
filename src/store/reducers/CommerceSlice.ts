@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import * as enums from '../../utils/enums/CommerceStatus'
 import Commerce from '../../models/Commerce'
+import * as enums from '../../utils/enums/CommerceStatus'
 
 type CommerceState = {
   items: Commerce[]

@@ -1,13 +1,13 @@
 import { useDispatch } from 'react-redux'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import closeIcon from '../../assets/images/close.png'
 import InputGroup from '../InputGroup'
+import Button from '../Button'
 import { clear } from '../../store/reducers/CommerceSlice'
 import * as enums from '../../utils/enums/CommerceStatus'
-import Button from '../Button'
 import { useRegisterMutation } from '../../services/api'
 import * as S from './styles'
+import closeIcon from '../../assets/images/close.png'
 
 const AddCommerce = ({ isVisible, onClose }: ModalProps) => {
   const dispatch = useDispatch()

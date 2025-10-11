@@ -1,4 +1,4 @@
-import { CommerceType } from './enums/CommerceStatus'
+import * as enums from './enums/CommerceStatus'
 
 export const parseToBrl = (amount = 0) => {
   return new Intl.NumberFormat('pt-BR', {
@@ -7,9 +7,12 @@ export const parseToBrl = (amount = 0) => {
   }).format(amount)
 }
 
-export const getCommerceLabel = (type: CommerceType, isSupplier: boolean) => {
+export const getCommerceLabel = (
+  type: enums.CommerceType,
+  isSupplier: boolean
+) => {
   switch (type) {
-    case CommerceType.SALE:
+    case enums.CommerceType.SALE:
       return isSupplier ? 'Venda' : 'Compra'
     default:
       return 'Solicitação'

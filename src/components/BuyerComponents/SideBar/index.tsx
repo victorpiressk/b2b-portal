@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux'
 import SideButton from '../../SupplierComponents/SideButton'
-import * as enums from '../../../utils/enums/CommerceStatus'
+import AddButton from '../../AddButton'
 import { RootReducer } from '../../../store'
 import { changeFilter } from '../../../store/reducers/FilterSlice'
-import AddButton from '../../AddButton'
-import { Aside, AsideTitle, Title, AddButtonContainer } from './styles'
+import * as enums from '../../../utils/enums/CommerceStatus'
+import * as S from './styles'
 
 const SideBar = () => {
   const dispatch = useDispatch()
@@ -18,8 +18,8 @@ const SideBar = () => {
   }
 
   return (
-    <Aside>
-      <AsideTitle>DB Compradores</AsideTitle>
+    <S.Aside>
+      <S.AsideTitle>DB Compradores</S.AsideTitle>
 
       <div>
         <SideButton
@@ -29,7 +29,7 @@ const SideBar = () => {
           Tudo
         </SideButton>
       </div>
-      <Title>Requisições</Title>
+      <S.Title>Requisições</S.Title>
       <div>
         <SideButton
           isActive={activeSection({
@@ -89,7 +89,7 @@ const SideBar = () => {
         </SideButton>
       </div>
 
-      <Title>Compras</Title>
+      <S.Title>Compras</S.Title>
       <div>
         <SideButton
           isActive={activeSection({
@@ -134,10 +134,10 @@ const SideBar = () => {
           Todas
         </SideButton>
       </div>
-      <AddButtonContainer>
+      <S.AddButtonContainer>
         <AddButton />
-      </AddButtonContainer>
-    </Aside>
+      </S.AddButtonContainer>
+    </S.Aside>
   )
 }
 

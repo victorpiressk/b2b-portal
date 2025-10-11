@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 import CommerceList from '../../components/SupplierComponents/CommerceList'
 import HeaderList from '../../components/SupplierComponents/HeaderList'
 import SideBar from '../../components/SupplierComponents/SideBar'
-import { Container, MainContainer } from '../../globalStyles'
+import * as GS from '../../globalStyles'
 import { RootReducer } from '../../store'
 import { useGetCommercesQuery } from '../../services/api'
 
@@ -37,13 +37,13 @@ const SupplierPageDemo = () => {
   }
 
   return (
-    <Container>
+    <GS.Container>
       <SideBar />
-      <MainContainer>
+      <GS.MainContainer>
         <HeaderList filteredItems={filteredItems()} />
         <CommerceList filteredItems={filteredItems()} />
-      </MainContainer>
-    </Container>
+      </GS.MainContainer>
+    </GS.Container>
   )
 }
 

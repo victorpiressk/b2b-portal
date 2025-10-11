@@ -9,7 +9,7 @@ export const colors = {
   navyBlue: '#182c61'
 }
 
-export const GlobalStyles = createGlobalStyle`
+const GlobalStyles = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
@@ -42,3 +42,5 @@ export const MainContainer = styled.main`
   padding: 20px 40px;
   height: 80vh;
 `
+
+export default GlobalStyles

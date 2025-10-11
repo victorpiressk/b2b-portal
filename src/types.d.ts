@@ -7,14 +7,16 @@ declare type ButtonProps = {
   disabled?: boolean
 }
 
+declare type InputGroupProps = {
+  label?: string
+  error?: string
+  children: ReactNode
+}
+
 declare type ModalProps = {
   isVisible: boolean
   onClose?: () => void
   description?: string
-}
-
-declare type ModalState = {
-  isVisible: boolean
 }
 
 declare type CardProps = {
@@ -28,6 +30,10 @@ declare type ListProps = {
 
 declare type CommerceProps = SupplierCommerce & {
   isSupplier: boolean
+}
+
+declare type ModalState = {
+  isVisible: boolean
 }
 
 declare type FilterState = {

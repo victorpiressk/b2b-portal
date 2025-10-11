@@ -1,20 +1,20 @@
-import { CommerceStatus, CommerceType } from '../utils/enums/CommerceStatus'
+import * as enums from '../utils/enums/CommerceStatus'
 
 class SupplierCommerce {
   id: number
   title: string
   description: string
   saleValue: number
-  status: CommerceStatus
-  operationType: CommerceType
+  status: enums.CommerceStatus
+  operationType: enums.CommerceType
 
   constructor(
     id: number,
     title: string,
     description: string,
     saleValue: number,
-    status: CommerceStatus,
-    operationType: CommerceType
+    status: enums.CommerceStatus,
+    operationType: enums.CommerceType
   ) {
     this.id = id
     this.title = title
