@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux'
+import Loader from '../../components/Loader'
 import CommerceList from '../../components/SupplierComponents/CommerceList'
 import HeaderList from '../../components/SupplierComponents/HeaderList'
 import SideBar from '../../components/SupplierComponents/SideBar'
@@ -12,8 +13,8 @@ const SupplierPageDemo = () => {
     (state: RootReducer) => state.filter
   )
 
-  if (isLoading) return <p>Carregando...</p>
-  if (isError) return <p>Erro ao carregar dados.</p>
+  if (isLoading || isError)
+    return <Loader isLoading={isLoading} isError={isError} />
 
   const filteredItems = () => {
     const termLowerCase = term?.trim().toLowerCase() ?? ''

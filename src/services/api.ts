@@ -18,9 +18,17 @@ const api = createApi({
         body
       }),
       invalidatesTags: ['Commerce']
+    }),
+    delete: builder.mutation<void, number>({
+      query: (id) => ({
+        url: `commerce/${id}`,
+        method: 'DELETE'
+      }),
+      invalidatesTags: ['Commerce']
     })
   })
 })
 
-export const { useGetCommercesQuery, useRegisterMutation } = api
+export const { useGetCommercesQuery, useRegisterMutation, useDeleteMutation } =
+  api
 export default api

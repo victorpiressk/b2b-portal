@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
 import ViewDescription from '../../ViewDescription'
-import { removeCommerce } from '../../../store/reducers/CommerceSlice'
 import { parseToBrl, getCommerceLabel, getOverflow } from '../../../utils'
+import { useDeleteMutation } from '../../../services/api'
 import * as enums from '../../../utils/enums/CommerceStatus'
 import { CommerceContainer } from './styles'
 
@@ -15,13 +14,22 @@ const Commerce = ({
   operationType,
   isSupplier
 }: CommerceProps) => {
-  const dispatch = useDispatch()
+  const [deleteCommerce] = useDeleteMutation()
   const [viewModal, setViewModal] = useState<ModalState>({ isVisible: false })
 
   const openViewModal = () => setViewModal({ isVisible: true })
   const closeViewModal = () => setViewModal({ isVisible: false })
 
-  const handleCancel = () => dispatch(removeCommerce(id))
+  const handleDelete = async () => {
+    try {
+      await deleteCommerce(id).unwrap()
+      console.log('ID a deletado com sucesso:', id)
+    } catch (error) {
+      console.log('ID a deletar:', id)
+      console.log('Tipo do id:', typeof id)
+      console.error('Erro ao deletar:', error)
+    }
+  }
 
   const RequestPending =
     operationType === enums.CommerceType.REQUEST &&
@@ -39,7 +47,7 @@ const Commerce = ({
         <p>{status}</p>
         {RequestPending && (
           <>
-            <button onClick={handleCancel}>Cancelar</button>
+            <button onClick={handleDelete}>Cancelar</button>
           </>
         )}
       </CommerceContainer>

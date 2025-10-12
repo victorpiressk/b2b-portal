@@ -32,6 +32,11 @@ declare type CommerceProps = SupplierCommerce & {
   isSupplier: boolean
 }
 
+declare type LoaderProps = {
+  isLoading: boolean
+  isError: boolean
+}
+
 declare type ModalState = {
   isVisible: boolean
 }
