@@ -1,46 +1,175 @@
-# Getting Started with Create React App
+# B2B Portal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Portal B2B desenvolvido com React, TypeScript e Vite.
 
-## Available Scripts
+## 🔄 Histórico de Versões
 
-In the project directory, you can run:
+### v2.0.0 (Em desenvolvimento)
+- ⚡ Migrado de Create React App para Vite
+- 🎨 Migrado de Styled Components para Tailwind CSS (em breve)
+- 🚀 Performance significativamente melhorada
+- 📦 Build otimizado com code splitting
 
-### `npm start`
+### [v1.0.0](../../tree/release/1.0.0)
+- Create React App
+- Styled Components
+- Redux Toolkit
+- React Router v7
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🚀 Tecnologias
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **React 19** - Biblioteca para construção de interfaces
+- **TypeScript** - Superset tipado do JavaScript
+- **Vite** - Build tool e dev server ultra-rápido
+- **Redux Toolkit** - Gerenciamento de estado
+- **React Router v7** - Roteamento
+- **Formik + Yup** - Gerenciamento de formulários e validação
+- **Styled Components** - Estilização (em processo de migração para Tailwind)
 
-### `npm test`
+## 📋 Pré-requisitos
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js >= 18.0.0
+- npm >= 9.0.0
 
-### `npm run build`
+## 🛠️ Instalação
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# Clone o repositório
+git clone [seu-repositorio]
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Entre no diretório
+cd b2b-portal
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Instale as dependências
+npm install
 
-### `npm run eject`
+# Configure as variáveis de ambiente
+cp .env.example .env
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 🎯 Scripts Disponíveis
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+# Iniciar servidor de desenvolvimento
+npm run dev
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Build para produção
+npm run build
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Preview do build de produção
+npm run preview
 
-## Learn More
+# Lint do código
+npm run lint
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Servidor JSON (mock API)
+npm run server
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🌱 Variáveis de Ambiente
+
+Crie um arquivo `.env` na raiz do projeto baseado no `.env.example`:
+
+```env
+VITE_API_URL=http://localhost:4000
+```
+
+**Importante:** No Vite, todas as variáveis de ambiente expostas ao cliente devem começar com `VITE_`.
+
+## 📁 Estrutura do Projeto
+
+```
+b2b-portal/
+├── public/              # Assets estáticos
+├── src/
+│   ├── components/      # Componentes reutilizáveis
+│   ├── pages/          # Páginas da aplicação
+│   ├── routes/         # Configuração de rotas
+│   ├── services/       # Serviços e APIs
+│   ├── store/          # Redux store, slices e reducers
+│   ├── models/         # Tipos e interfaces
+│   ├── utils/          # Funções utilitárias
+│   ├── main.tsx        # Entry point da aplicação
+│   └── vite-env.d.ts   # Tipos do Vite
+├── index.html          # HTML principal
+├── vite.config.ts      # Configuração do Vite
+├── tsconfig.json       # Configuração do TypeScript
+└── package.json
+```
+
+## 🎨 Path Aliases
+
+O projeto está configurado com aliases para imports mais limpos:
+
+```typescript
+import Component from '@components/Component';
+import { useSomeHook } from '@utils/hooks';
+import { SomeModel } from '@models/SomeModel';
+```
+
+Aliases disponíveis:
+- `@/` → `src/`
+- `@components/` → `src/components/`
+- `@pages/` → `src/pages/`
+- `@services/` → `src/services/`
+- `@store/` → `src/store/`
+- `@utils/` → `src/utils/`
+- `@models/` → `src/models/`
+- `@routes/` → `src/routes/`
+
+## 🔥 Hot Module Replacement
+
+O Vite oferece HMR instantâneo. Suas mudanças aparecerão no navegador em milissegundos, sem reload completo da página.
+
+## 🏗️ Build
+
+O build de produção é otimizado automaticamente:
+- Tree-shaking
+- Code splitting
+- Minificação
+- Otimização de assets
+
+```bash
+npm run build
+```
+
+Os arquivos otimizados estarão em `build/`.
+
+## 🧪 Testes
+
+(Em desenvolvimento)
+
+## 📝 Contribuindo
+
+1. Crie uma branch de feature: `git checkout -b feat/nova-feature`
+2. Commit suas mudanças: `git commit -m 'feat: adiciona nova feature'`
+3. Push para a branch: `git push origin feat/nova-feature`
+4. Abra um Pull Request
+
+### Padrão de Commits
+
+Seguimos o padrão [Conventional Commits](https://www.conventionalcommits.org/):
+
+- `feat:` - Nova funcionalidade
+- `fix:` - Correção de bug
+- `docs:` - Documentação
+- `style:` - Formatação, espaços em branco
+- `refactor:` - Refatoração de código
+- `test:` - Testes
+- `chore:` - Tarefas de manutenção
+
+## 📄 Licença
+
+Este projeto é privado e parte de um portfólio pessoal.
+
+## 👤 Autor
+
+Seu Nome
+- GitHub: [@seu-usuario](https://github.com/seu-usuario)
+- LinkedIn: [seu-perfil](https://linkedin.com/in/seu-perfil)
+
+## 🙏 Agradecimentos
+
+- Documentação do Vite
+- Comunidade React
+- Todos que contribuíram para as bibliotecas utilizadas
