@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Suas classes customizadas podem ir aqui
+  
+  Exemplo de componente customizado:
+  @layer components {
+    .btn-primary {
+      @apply bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded;
+    }
+  }
+  
+  Exemplo de utility customizada:
+  @layer utilities {
+    .text-shadow {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  }
+*/
