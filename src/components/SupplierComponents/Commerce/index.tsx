@@ -21,7 +21,10 @@ const Commerce = ({
   const openViewModal = () => setViewModal({ isVisible: true })
   const closeViewModal = () => setViewModal({ isVisible: false })
 
-  const handleConfirm = () => dispatch(reducer.confirmRequest(id))
+  const handleConfirm = () => {
+    dispatch(reducer.confirmRequest(id))
+    console.log('botão de confirmar clicado')
+  }
   const handleReject = () => dispatch(reducer.rejectRequest(id))
   const handleStart = () => dispatch(reducer.startSale(id))
   const handleConclude = () => dispatch(reducer.concludeSale(id))
@@ -50,7 +53,9 @@ const Commerce = ({
         <p>{status}</p>
         {RequestPending && (
           <>
-            <button onClick={handleConfirm}>Confirmar</button>
+            <button type="button" onClick={handleConfirm}>
+              Confirmar
+            </button>
             <button onClick={handleReject}>Rejeitar</button>
           </>
         )}
